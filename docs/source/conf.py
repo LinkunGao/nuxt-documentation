@@ -16,8 +16,6 @@
 
 import sphinx_rtd_theme
 
-from recommonmark.parser import CommonMarkParser
-
 # -- Project information -----------------------------------------------------
 
 project = 'Nuxt'
@@ -37,9 +35,6 @@ extensions = [
     'recommonmark',
     'sphinx.ext.autosectionlabel'
 ]
-# look like 'heading' rather than 'path/to/file:heading'.
-autosectionlabel_prefix_document = True
-
 source_parsers = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
@@ -67,3 +62,5 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+# look like 'heading' rather than 'path/to/file:heading'.
+autosectionlabel_prefix_document = True
