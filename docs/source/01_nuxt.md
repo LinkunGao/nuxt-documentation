@@ -126,6 +126,19 @@ Nuxt.js 是一个基于 Vue.js 的通用应用框架。
 
   - 在对应的文件夹下创建以 \_ 开头的文件，
     例如在 news 文件夹下创建 \_id.vue 作为接收动态路由的文件。
+    ```
+    // news-id 中的 - 对应的是 _id.vue 中的 _
+        <li>
+            <nuxt-link :to="{ name: 'news-id', params: { id: 123 } }">
+                new-1
+            </nuxt-link>
+        </li>
+        <li>
+            <nuxt-link :to="{ name: 'news-id', params: { id: 12344 } }">
+                new-2
+            </nuxt-link>
+        </li>
+    ```
 
 - css transition 动画
 
