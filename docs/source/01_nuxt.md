@@ -122,3 +122,6 @@ Nuxt.js 是一个基于 Vue.js 的通用应用框架。
   ```bash
         <p>NewsID:{{$route.params.newsId}}</p>
   ```
+- nuxt 动态路由
+  - 在对应的文件夹下创建以 \_ 开头的文件，
+    例如在 news 文件夹下创建 \_id.vue 作为接收动态路由的文件。
