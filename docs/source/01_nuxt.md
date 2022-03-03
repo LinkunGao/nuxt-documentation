@@ -178,3 +178,20 @@ Nuxt.js 是一个基于 Vue.js 的通用应用框架。
             };
         </script>
     ```
+
+- nuxt 默认模版
+  - 首先根目录下创建 app.html, nuxt 会自动把它当作为默认模版
+  ```
+      <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              {{HEAD}}
+          </head>
+          <body>
+              <p>Skycoco Blog</p>
+              {{APP}}
+          </body>
+          </html>
+  ```
+  更改模版之后，必须重启服务器
+  - 在 layout 下定义模版布局
