@@ -6,16 +6,13 @@
 Welcome to Nuxt's documentation!
 ================================
 
+Nuxt.js => Vue.js => SSR
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   
-   hello
+
+   01_nuxt
+   02_SSR
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hello &mdash; Nuxt 0.0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Nuxt.js &mdash; Nuxt 0.0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -16,6 +16,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduce SSR" href="02_SSR.html" />
     <link rel="prev" title="Welcome to Nuxt’s documentation!" href="index.html" /> 
 </head>
 
@@ -36,7 +37,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">hello</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nuxt.js</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#start-a-new-nuxt-js-project">Start a new nuxt.js project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-json">在 package.json 文件中配置端口</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_SSR.html">Introduce SSR</a></li>
 </ul>
 
         </div>
@@ -53,9 +59,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>hello</li>
+      <li>Nuxt.js</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/hello.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/01_nuxt.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -63,11 +69,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="hello">
-<h1>hello<a class="headerlink" href="#hello" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="nuxt-js">
+<h1>Nuxt.js<a class="headerlink" href="#nuxt-js" title="Permalink to this headline">¶</a></h1>
+<p>See: https://nuxtjs.org/docs/get-started/installation
+Nuxt.js 是一个基于 Vue.js 的通用应用框架。
+通过对客户端/服务器端基础架构的抽象组织，Nuxt.js 主要关注的是应用的 <font color="#006600">UI 渲染</font>。</p>
+<p>优点：</p>
 <ul class="simple">
-<li><p><font color="#660066">nuxt.js learn</font></p></li>
+<li><p>基于 Vue.js</p></li>
+<li><p>自动代码分层</p></li>
+<li><p>服务器端渲染</p></li>
+<li><p>强大的路由功能，支持异步数据</p></li>
+<li><p>静态文件服务</p></li>
+<li><p>ES6/7 语法支持</p></li>
+<li><p>打包和压缩 JS 和 CSS</p></li>
+<li><p>HTML 头部标签管理</p></li>
+<li><p>本地开发支持热加载</p></li>
+<li><p>集成 ESLint</p></li>
+<li><p>支持各种样式预处理器：SASS/LESS/Stylus 等等</p></li>
 </ul>
+<div class="section" id="start-a-new-nuxt-js-project">
+<h2>Start a new nuxt.js project<a class="headerlink" href="#start-a-new-nuxt-js-project" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>初始化项目</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    npm init nuxt-app nuxt-demo
+    yarn dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-json">
+<h2>在 package.json 文件中配置端口<a class="headerlink" href="#package-json" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;scripts&quot;</span>:<span class="o">{</span>...<span class="o">}</span>,
+    <span class="s2">&quot;config&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;nuxt&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;127.0.0.1&quot;</span>,
+        <span class="s2">&quot;port&quot;</span>: <span class="s2">&quot;3999&quot;</span>
+        <span class="o">}</span>
+  <span class="o">}</span>,
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -75,6 +117,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Nuxt’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_SSR.html" class="btn btn-neutral float-right" title="Introduce SSR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
