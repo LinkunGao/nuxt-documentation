@@ -6,3 +6,9 @@
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  transition: "test",
+};
+</script>

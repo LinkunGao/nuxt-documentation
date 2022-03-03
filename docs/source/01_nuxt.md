@@ -123,5 +123,45 @@ Nuxt.js 是一个基于 Vue.js 的通用应用框架。
         <p>NewsID:{{$route.params.newsId}}</p>
   ```
 - nuxt 动态路由
+
   - 在对应的文件夹下创建以 \_ 开头的文件，
     例如在 news 文件夹下创建 \_id.vue 作为接收动态路由的文件。
+
+- css transition 动画
+
+  - 在 css 中添加：
+
+    ```bash
+        .page-enter-active,
+        .page-leave-active {
+            transition: opacity 2s;
+        }
+
+        .page-enter,
+        .page-leave-active {
+            opacity: 0;
+        }
+
+        .test-enter-active,
+        .test-leave-active {
+            transition: all 2s;
+            font-size: 12px;
+        }
+
+        .test-enter,
+        .test-leave-active {
+            opacity: 0;
+            font-size: 40px;
+        }
+    ```
+
+    - page 对应的是全局动画，test 是局部动画需要引用
+
+    ```
+        // 在 about 中引用，需要在 about/index.vue 的 <script></script>中添加
+        <script>
+            export default {
+                transition: "test",
+            };
+        </script>
+    ```
