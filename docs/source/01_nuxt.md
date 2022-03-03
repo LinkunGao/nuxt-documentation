@@ -41,9 +41,84 @@ Nuxt.js 是一个基于 Vue.js 的通用应用框架。
 
 ## 全局添加 css
 
+- 貌似没有成功
+
 ```bash
         1. 在assets文件夹中新建一个css文件夹，在css文件夹下新建一个css文件
         2. 在nuxt.config.js配置文件下：
             head:{...},
-            css:[''],
+            css: ["~assets/css/normalize.css"],
 ```
+
+## 在 nuxt.config.js 下配置 webpack 的 loader
+
+```bash
+    head:{...},
+    build:{
+        loaders:[
+            {
+                test:/\.(png|jpe?g|gif|svg)$/,
+                loader:"url-loader",
+                query:{
+                    limit:10000,
+                    name:'img/[name].[hash].[ext]'
+                }
+            }
+        ]
+    },
+```
+
+## 路由 router
+
+- 在 pages 文件夹下，建两个子文件夹，about，news
+- 在这两个文件夹下分别创建 index.vue 文件
+  ```bash
+      <template>
+          <div>
+              <h2>About Index page</h2>
+              <ul>
+              <li><a href="/">Home</a></li>
+              </ul>
+          </div>
+      </template>
+  ```
+- 在 pages 文件夹下的 index.vue 文件中更改如下代码：
+
+```bash
+        <template>
+            <div>
+                <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/news">News</a></li>
+                </ul>
+            </div>
+        </template>
+```
+
+- 在 nuxt 环境下，推荐使用的是 nuxt-link 标签，所以我们要把 a 标签替换为 nuxt-link 标签
+
+```
+    <template>
+            <div>
+                <ul>
+                <li><nuxt-link :to="{name:'index'}">HOME</nuxt-link></li>
+                <li><nuxt-link :to="{name:'about'}">About</nuxt-link></li>
+                <li><nuxt-link :to="{name:'news'}">News</nuxt-link></li>
+                </ul>
+            </div>
+        </template>
+```
+
+- nuxt-link 标签
+  - name 是路由，填写具体的文件或文件夹名
+  - params 是跳转是的传参
+  ```bash
+      <nuxt-link :to="{ name: 'news', params: { newId: 3306 } }">
+        News
+      </nuxt-link>
+  ```
+  - 在 news/index.vue 下接收参数：
+  ```bash
+        <p>NewsID:{{$route.params.newsId}}</p>
+  ```
