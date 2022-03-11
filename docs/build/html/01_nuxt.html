@@ -40,6 +40,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Nuxt.js</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#start-a-new-nuxt-js-project">Start a new nuxt.js project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#package-json">在 package.json 文件中配置端口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#css">全局添加 css</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nuxt-config-js-webpack-loader">在 nuxt.config.js 下配置 webpack 的 loader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#router">路由 router</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="02_SSR.html">Introduce SSR</a></li>
@@ -106,9 +109,185 @@ Nuxt.js 是一个基于 Vue.js 的通用应用框架。
         <span class="s2">&quot;host&quot;</span>: <span class="s2">&quot;127.0.0.1&quot;</span>,
         <span class="s2">&quot;port&quot;</span>: <span class="s2">&quot;3999&quot;</span>
         <span class="o">}</span>
-  <span class="o">}</span>,
+    <span class="o">}</span>,
 </pre></div>
 </div>
+</div>
+<div class="section" id="css">
+<h2>全局添加 css<a class="headerlink" href="#css" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>貌似没有成功</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>        <span class="m">1</span>. 在assets文件夹中新建一个css文件夹，在css文件夹下新建一个css文件
+        <span class="m">2</span>. 在nuxt.config.js配置文件下：
+            head:<span class="o">{</span>...<span class="o">}</span>,
+            css: <span class="o">[</span><span class="s2">&quot;~assets/css/normalize.css&quot;</span><span class="o">]</span>,
+</pre></div>
+</div>
+</div>
+<div class="section" id="nuxt-config-js-webpack-loader">
+<h2>在 nuxt.config.js 下配置 webpack 的 loader<a class="headerlink" href="#nuxt-config-js-webpack-loader" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    head:<span class="o">{</span>...<span class="o">}</span>,
+    build:<span class="o">{</span>
+        loaders:<span class="o">[</span>
+            <span class="o">{</span>
+                test:/<span class="se">\.</span><span class="o">(</span>png<span class="p">|</span>jpe?g<span class="p">|</span>gif<span class="p">|</span>svg<span class="o">)</span>$/,
+                loader:<span class="s2">&quot;url-loader&quot;</span>,
+                query:<span class="o">{</span>
+                    limit:10000,
+                    name:<span class="s1">&#39;img/[name].[hash].[ext]&#39;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>,
+</pre></div>
+</div>
+</div>
+<div class="section" id="router">
+<h2>路由 router<a class="headerlink" href="#router" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>在 pages 文件夹下，建两个子文件夹，about，news</p></li>
+<li><p>在这两个文件夹下分别创建 index.vue 文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    &lt;template&gt;
+        &lt;div&gt;
+            &lt;h2&gt;About Index page&lt;/h2&gt;
+            &lt;ul&gt;
+            &lt;li&gt;&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;/&quot;</span>&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+</pre></div>
+</div>
+</li>
+<li><p>在 pages 文件夹下的 index.vue 文件中更改如下代码：</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>        &lt;template&gt;
+            &lt;div&gt;
+                &lt;ul&gt;
+                &lt;li&gt;&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;/&quot;</span>&gt;HOME&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;/about&quot;</span>&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;/news&quot;</span>&gt;News&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>在 nuxt 环境下，推荐使用的是 nuxt-link 标签，所以我们要把 a 标签替换为 nuxt-link 标签</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span> <span class="p">:</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;{name:&#39;index&#39;}&quot;</span><span class="o">&gt;</span><span class="n">HOME</span><span class="o">&lt;/</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span> <span class="p">:</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;{name:&#39;about&#39;}&quot;</span><span class="o">&gt;</span><span class="n">About</span><span class="o">&lt;/</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;&lt;</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span> <span class="p">:</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;{name:&#39;news&#39;}&quot;</span><span class="o">&gt;</span><span class="n">News</span><span class="o">&lt;/</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+                <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ul>
+<li><p>nuxt-link 标签</p>
+<ul class="simple">
+<li><p>name 是路由，填写具体的文件或文件夹名</p></li>
+<li><p>params 是跳转是的传参</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    &lt;nuxt-link :to<span class="o">=</span><span class="s2">&quot;{ name: &#39;news&#39;, params: { newId: 3306 } }&quot;</span>&gt;
+      News
+    &lt;/nuxt-link&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>在 news/index.vue 下接收参数：</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>      &lt;p&gt;NewsID:<span class="o">{{</span><span class="nv">$route</span>.params.newsId<span class="o">}}</span>&lt;/p&gt;
+</pre></div>
+</div>
+</li>
+<li><p>nuxt 动态路由</p>
+<ul>
+<li><p>在对应的文件夹下创建以 _ 开头的文件，
+例如在 news 文件夹下创建 _id.vue 作为接收动态路由的文件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">news</span><span class="o">-</span><span class="nb">id</span> <span class="n">中的</span> <span class="o">-</span> <span class="n">对应的是</span> <span class="n">_id</span><span class="o">.</span><span class="n">vue</span> <span class="n">中的</span> <span class="n">_</span>
+    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span> <span class="p">:</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;{ name: &#39;news-id&#39;, params: { id: 123 } }&quot;</span><span class="o">&gt;</span>
+            <span class="n">new</span><span class="o">-</span><span class="mi">1</span>
+        <span class="o">&lt;/</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span> <span class="p">:</span><span class="n">to</span><span class="o">=</span><span class="s2">&quot;{ name: &#39;news-id&#39;, params: { id: 12344 } }&quot;</span><span class="o">&gt;</span>
+            <span class="n">new</span><span class="o">-</span><span class="mi">2</span>
+        <span class="o">&lt;/</span><span class="n">nuxt</span><span class="o">-</span><span class="n">link</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>css transition 动画</p>
+<ul>
+<li><p>在 css 中添加：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    .page-enter-active,
+    .page-leave-active <span class="o">{</span>
+        transition: opacity 2s<span class="p">;</span>
+    <span class="o">}</span>
+
+    .page-enter,
+    .page-leave-active <span class="o">{</span>
+        opacity: <span class="m">0</span><span class="p">;</span>
+    <span class="o">}</span>
+
+    .test-enter-active,
+    .test-leave-active <span class="o">{</span>
+        transition: all 2s<span class="p">;</span>
+        font-size: 12px<span class="p">;</span>
+    <span class="o">}</span>
+
+    .test-enter,
+    .test-leave-active <span class="o">{</span>
+        opacity: <span class="m">0</span><span class="p">;</span>
+        font-size: 40px<span class="p">;</span>
+    <span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>page 对应的是全局动画，test 是局部动画需要引用</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    // 在 about 中引用，需要在 about/index.vue 的 &lt;script&gt;&lt;/script&gt;中添加
+    &lt;script&gt;
+        export default {
+            transition: &quot;test&quot;,
+        };
+    &lt;/script&gt;
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>nuxt 默认模版</p>
+<ul class="simple">
+<li><p>首先根目录下创建 app.html, nuxt 会自动把它当作为默认模版</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    &lt;!DOCTYPE html&gt;
+        &lt;html lang=&quot;en&quot;&gt;
+        &lt;head&gt;
+            {{HEAD}}
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;p&gt;Skycoco Blog&lt;/p&gt;
+            {{APP}}
+        &lt;/body&gt;
+        &lt;/html&gt;
+</pre></div>
+</div>
+<p>更改模版之后，必须重启服务器</p>
+<ul class="simple">
+<li><p>在 layout 下定义模版布局</p></li>
+</ul>
+</li>
+<li><p>add json
+see: https://myjson.dit.upm.es/</p></li>
+</ul>
 </div>
 </div>
 

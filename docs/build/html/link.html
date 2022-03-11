@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nuxt-demo &mdash; Nuxt 0.0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nuxt.js" href="01_nuxt.html" />
+    <link rel="prev" title="Welcome to Nuxt’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Nuxt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nuxt-demo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#build-setup">Build Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-directories">Special Directories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assets"><code class="docutils literal notranslate"><span class="pre">assets</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#components"><code class="docutils literal notranslate"><span class="pre">components</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layouts"><code class="docutils literal notranslate"><span class="pre">layouts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pages"><code class="docutils literal notranslate"><span class="pre">pages</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plugins"><code class="docutils literal notranslate"><span class="pre">plugins</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#static"><code class="docutils literal notranslate"><span class="pre">static</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#store"><code class="docutils literal notranslate"><span class="pre">store</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01_nuxt.html">Nuxt.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_SSR.html">Introduce SSR</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Nuxt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>nuxt-demo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/link.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="nuxt-demo">
+<h1>nuxt-demo<a class="headerlink" href="#nuxt-demo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="build-setup">
+<h2>Build Setup<a class="headerlink" href="#build-setup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install dependencies</span>
+$ npm install
+
+<span class="c1"># serve with hot reload at localhost:3000</span>
+$ npm run dev
+
+<span class="c1"># build for production and launch server</span>
+$ npm run build
+$ npm run start
+
+<span class="c1"># generate static project</span>
+$ npm run generate
+</pre></div>
+</div>
+<p>For detailed explanation on how things work, check out the
+<a class="reference external" href="https://nuxtjs.org">documentation</a>.</p>
+</div>
+<div class="section" id="special-directories">
+<h2>Special Directories<a class="headerlink" href="#special-directories" title="Permalink to this headline">¶</a></h2>
+<p>You can create the following extra directories, some of which have
+special behaviors. Only <code class="docutils literal notranslate"><span class="pre">pages</span></code> is required; you can delete them if
+you don’t want to use their functionality.</p>
+<div class="section" id="assets">
+<h3><code class="docutils literal notranslate"><span class="pre">assets</span></code><a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h3>
+<p>The assets directory contains your uncompiled assets such as Stylus or
+Sass files, images, or fonts.</p>
+<p>More information about the usage of this directory in <a class="reference external" href="https://nuxtjs.org/docs/2.x/directory-structure/assets">the
+documentation</a>.</p>
+</div>
+<div class="section" id="components">
+<h3><code class="docutils literal notranslate"><span class="pre">components</span></code><a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h3>
+<p>The components directory contains your Vue.js components. Components
+make up the different parts of your page and can be reused and imported
+into your pages, layouts and even other components.</p>
+<p>More information about the usage of this directory in <a class="reference external" href="https://nuxtjs.org/docs/2.x/directory-structure/components">the
+documentation</a>.</p>
+</div>
+<div class="section" id="layouts">
+<h3><code class="docutils literal notranslate"><span class="pre">layouts</span></code><a class="headerlink" href="#layouts" title="Permalink to this headline">¶</a></h3>
+<p>Layouts are a great help when you want to change the look and feel of
+your Nuxt app, whether you want to include a sidebar or have distinct
+layouts for mobile and desktop.</p>
+<p>More information about the usage of this directory in <a class="reference external" href="https://nuxtjs.org/docs/2.x/directory-structure/layouts">the
+documentation</a>.</p>
+</div>
+<div class="section" id="pages">
+<h3><code class="docutils literal notranslate"><span class="pre">pages</span></code><a class="headerlink" href="#pages" title="Permalink to this headline">¶</a></h3>
+<p>This directory contains your application views and routes. Nuxt will
+read all the <code class="docutils literal notranslate"><span class="pre">*.vue</span></code> files inside this directory and setup Vue Router
+automatically.</p>
+<p>More information about the usage of this directory in <a class="reference external" href="https://nuxtjs.org/docs/2.x/get-started/routing">the
+documentation</a>.</p>
+</div>
+<div class="section" id="plugins">
+<h3><code class="docutils literal notranslate"><span class="pre">plugins</span></code><a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h3>
+<p>The plugins directory contains JavaScript plugins that you want to run
+before instantiating the root Vue.js Application. This is the place to
+add Vue plugins and to inject functions or constants. Every time you
+need to use <code class="docutils literal notranslate"><span class="pre">Vue.use()</span></code>, you should create a file in <code class="docutils literal notranslate"><span class="pre">plugins/</span></code> and
+add its path to plugins in <code class="docutils literal notranslate"><span class="pre">nuxt.config.js</span></code>.</p>
+<p>More information about the usage of this directory in <a class="reference external" href="https://nuxtjs.org/docs/2.x/directory-structure/plugins">the
+documentation</a>.</p>
+</div>
+<div class="section" id="static">
+<h3><code class="docutils literal notranslate"><span class="pre">static</span></code><a class="headerlink" href="#static" title="Permalink to this headline">¶</a></h3>
+<p>This directory contains your static files. Each file inside this
+directory is mapped to <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">/static/robots.txt</span></code> is mapped as <code class="docutils literal notranslate"><span class="pre">/robots.txt</span></code>.</p>
+<p>More information about the usage of this directory in <a class="reference external" href="https://nuxtjs.org/docs/2.x/directory-structure/static">the
+documentation</a>.</p>
+</div>
+<div class="section" id="store">
+<h3><code class="docutils literal notranslate"><span class="pre">store</span></code><a class="headerlink" href="#store" title="Permalink to this headline">¶</a></h3>
+<p>This directory contains your Vuex store files. Creating a file in this
+directory automatically activates Vuex.</p>
+<p>More information about the usage of this directory in <a class="reference external" href="https://nuxtjs.org/docs/2.x/directory-structure/store">the
+documentation</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Nuxt’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01_nuxt.html" class="btn btn-neutral float-right" title="Nuxt.js" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Linkun Gao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
