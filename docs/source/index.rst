@@ -8,11 +8,15 @@ Welcome to Nuxt's documentation!
 
 Nuxt.js => Vue.js => SSR
 
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   link
    01_nuxt
    02_SSR
+   03_nuxt_implementation
 
 
