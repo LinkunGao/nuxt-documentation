@@ -18,5 +18,6 @@ Nuxt.js => Vue.js => SSR
    01_nuxt
    02_SSR
    03_nuxt_implementation
+   deploy/index
 
 
