@@ -8,3 +8,4 @@ How to deploy nuxt project
     01_netify
     02_github
     03_readthedocs
+    04_heroku
