@@ -26,7 +26,7 @@
    node -v
    ```
 
-5. In your pakeage.json file:
+5. In your pakeage.json file, wirte down the npm and node version in `engines`:
 
    ```json
    {
