@@ -19,7 +19,7 @@
    web: npm run start
    ```
 
-4. Check you npm and node version
+4. Check you npm and node version number:
 
    ```bash
    npm -v
