@@ -1,0 +1,4 @@
+.DS_Store
+.nuxt
+./nuxt-static-example/.nuxt
+./nuxt-static-example/node_modules/
