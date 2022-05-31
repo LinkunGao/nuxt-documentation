@@ -1,14 +1,18 @@
 <template>
   <div>
-    Blog Post content. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aperiam quam odio eveniet quasi labore doloremque eligendi omnis maiores
-    laborum deserunt nostrum expedita repellat sequi cum, ea esse officia eaque
-    accusantium.
+    <button @click="goHome">hhh</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goHome() {
+      console.log(this.$nuxt.$route.path);
+      this.$router.push({ name: "video" });
+    },
+  },
+};
 </script>
 
 <style></style>

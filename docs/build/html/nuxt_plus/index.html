@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to use Nuxt &mdash; Nuxt 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="4. Host app on Heroku" href="../deploy/04_heroku.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Nuxt
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../link.html">nuxt-demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_nuxt.html">Nuxt.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_SSR.html">Introduce SSR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_nuxt_implementation.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploy/index.html">How to deploy nuxt project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use Nuxt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#plugins">plugins</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Nuxt</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>How to use Nuxt</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/nuxt_plus/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="how-to-use-nuxt">
+<h1>How to use Nuxt<a class="headerlink" href="#how-to-use-nuxt" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="plugins">
+<h2>plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<p>When we import a new moudle.</p>
+<p>If the moudel include <code class="docutils literal notranslate"><span class="pre">window</span></code> / <code class="docutils literal notranslate"><span class="pre">document</span></code>. We need set <code class="docutils literal notranslate"><span class="pre">ssr:flase</span></code></p>
+<ul class="simple">
+<li><p>In nuxt.config.js</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;@/plugins/topics&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;@/plugins/current-content&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;@/plugins/models&quot;</span><span class="p">,</span>
+    <span class="p">{</span> <span class="nx">src</span><span class="o">:</span> <span class="s2">&quot;~/plugins/copper.js&quot;</span><span class="p">,</span> <span class="nx">ssr</span><span class="o">:</span> <span class="kc">false</span> <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<ul>
+<li><p>In plugins folder</p>
+<p>we can create a <code class="docutils literal notranslate"><span class="pre">copper.js</span></code> import the moudle.</p>
+</li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">Copper</span> <span class="nx">from</span> <span class="s2">&quot;gltfloader-plugin-test&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="s2">&quot;100vw&quot;</span><span class="p">;</span>
+<span class="nx">container</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="s2">&quot;100vh&quot;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">baseRenderer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Copper</span><span class="p">.</span><span class="nx">copperRenderer</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="p">{</span> <span class="nx">guiOpen</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+<span class="nx">baseRenderer</span><span class="p">.</span><span class="nx">animate</span><span class="p">();</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">inject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">inject</span><span class="p">(</span><span class="s2">&quot;baseRenderer&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">baseRenderer</span><span class="p">;</span>
+  <span class="p">}),</span>
+    <span class="nx">inject</span><span class="p">(</span><span class="s2">&quot;baseContainer&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">container</span><span class="p">;</span>
+    <span class="p">}),</span>
+    <span class="nx">inject</span><span class="p">(</span><span class="s2">&quot;Copper&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">Copper</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../deploy/04_heroku.html" class="btn btn-neutral float-left" title="4. Host app on Heroku" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Linkun Gao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
